@@ -1,4 +1,4 @@
 FROM mongo:5
 
-COPY *.js /test
+COPY *.js /docker-entrypoint-initdb.d/
 
