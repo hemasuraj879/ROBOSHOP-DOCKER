@@ -12,7 +12,7 @@ COPY requirements.txt . \
 # INSTALL THE REQUIREMENTS
 RUN apk --no-cache add build-base linux-headers
 RUN pip install --upgrade setuptools
-RUN pip3.6 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Setting up environment variables
 ENV AMQP_USER=roboshop \
