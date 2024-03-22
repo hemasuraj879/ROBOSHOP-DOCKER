@@ -4,8 +4,13 @@ FROM node:14
 # Expose this application on port
 EXPOSE 8080
 
+RUN addgroup -S cart && adduser -S cart cart
+
 # Set the working directory in the container
 WORKDIR /app
+
+RUN chown -R cart:cart /opt/server
+USER cart
 
 # Setting up Environment variables
 ENV CATALOGUE_PORT=8080
