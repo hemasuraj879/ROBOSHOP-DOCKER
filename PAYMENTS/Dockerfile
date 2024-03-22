@@ -6,7 +6,7 @@ WORKDIR /app
 
 #Copy the shipping project and source code
 COPY requirements.txt . \
-    * .py . \
+     *.py . \
     payment.ini .
 
 # INSTALL THE REQUIREMENTS
