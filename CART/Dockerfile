@@ -4,16 +4,11 @@ FROM node:14
 # Expose this application on port
 EXPOSE 8080
 
-RUN groupadd -r cart && useradd -r -g cart cart
-
-
 # Set the working directory in the container
 WORKDIR /app
 
-RUN chown -R cart:cart /opt/app
-USER cart
-
 # Setting up Environment variables
+ENV INSTANA_AUTO_PROFILE true
 ENV CATALOGUE_PORT=8080
 
 # Copy package.json and  to the container
