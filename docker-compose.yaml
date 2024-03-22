@@ -74,6 +74,8 @@ services:
     container_name: web
     networks:
       - roboshop
+    ports:
+    - "80:80"
     depends_on:
       # - payments
       # - shipping
