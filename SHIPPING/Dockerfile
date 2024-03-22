@@ -30,7 +30,7 @@ ENV DB_HOST=mysql
 WORKDIR /app
 
 # Copy the built JAR file from the build stage
-COPY --from=build /app/target/shipping.jar .
+COPY --from=build /app/target/shipping-1.0.jar shipping.jar
 
 # Specify the command to run your application
 CMD ["java", "-jar", "shipping.jar"]
