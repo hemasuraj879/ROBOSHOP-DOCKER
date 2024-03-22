@@ -1,3 +1,4 @@
+# Use the official node image as the base image
 FROM node:14
 
 WORKDIR /opt/server
