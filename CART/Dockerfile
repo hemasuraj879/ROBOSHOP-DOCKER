@@ -4,7 +4,7 @@ FROM node:14
 # Expose this application on port
 EXPOSE 8080
 
-RUN addgroup -S cart && adduser -S cart cart
+RUN groupadd  -S cart && useradd  -S cart cart
 
 # Set the working directory in the container
 WORKDIR /app
