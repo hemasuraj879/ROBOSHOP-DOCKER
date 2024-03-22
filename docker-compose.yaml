@@ -75,8 +75,8 @@ services:
     networks:
       - roboshop
     depends_on:
-      - payments
-      - shipping
-      - user
-      - cart
+      # - payments
+      # - shipping
+      # - user
+      # - cart
       - catalogue
