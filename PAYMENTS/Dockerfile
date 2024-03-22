@@ -11,6 +11,11 @@ COPY requirements.txt . \
 
 # INSTALL THE REQUIREMENTS
 RUN pip3.6 install -r requirements.txt
+RUN pip install --upgrade setuptools
+
+# Setting up environment variables
+ENV AMQP_USER=roboshop \
+    AMQP_PASS=roboshop123
 
 # Specify the command to run the application
 CMD ["uwsgi", "--ini", "payment.ini"]
