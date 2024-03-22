@@ -1,0 +1,82 @@
+networks:
+  roboshop:
+    drive: bridge
+
+services:
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+    networks:
+      - roboshop
+
+  # redis:
+  #   image: redis:v1
+  #   container_name: redis
+  #   networks:
+  #     - roboshop
+
+  # mysql:
+  #   image: mysql:v1
+  #   container_name: mysql
+  #   networks:
+  #     - roboshop
+
+  # rabbitmq:
+  #   image: rabbitmq:v1
+  #   container_name: rabbitmq
+  #   networks:
+  #     - roboshop
+
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    networks:
+      - roboshop
+    depends_on:
+      - mongodb
+
+  # cart:
+  #   image: cart:v1
+  #   container_name: cart
+  #   networks:
+  #     - roboshop
+  #   depends_on:
+  #     - catalogue
+  #     - redis
+
+  # user:
+  #   image: user:v1
+  #   container_name: user
+  #   networks:
+  #     - roboshop
+  #   depends_on:
+  #     - redis
+  #     - mongodb
+    
+  # shipping:
+  #   image: shipping:v1
+  #   container_name: shipping
+  #   networks:
+  #     - roboshop
+  #   depends_on:
+  #     - mysql
+
+  # payments:
+  #   image: payments:v1
+  #   container_name: payments
+  #   networks:
+  #     - roboshop
+  #   depends_on:
+  #     - rabbitmq
+  
+  web:
+    image: web:v1
+    container_name: web
+    networks:
+      - roboshop
+    depends_on:
+      - payments
+      - shipping
+      - user
+      - cart
+      - catalogue
