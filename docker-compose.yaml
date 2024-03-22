@@ -9,11 +9,11 @@ services:
     networks:
       - roboshop
 
-  # redis:
-  #   image: redis:v1
-  #   container_name: redis
-  #   networks:
-  #     - roboshop
+  redis:
+    image: redis:v1
+    container_name: redis
+    networks:
+      - roboshop
 
   # mysql:
   #   image: mysql:v1
@@ -35,14 +35,14 @@ services:
     depends_on:
       - mongodb
 
-  # cart:
-  #   image: cart:v1
-  #   container_name: cart
-  #   networks:
-  #     - roboshop
-  #   depends_on:
-  #     - catalogue
-  #     - redis
+  cart:
+    image: cart:v1
+    container_name: cart
+    networks:
+      - roboshop
+    depends_on:
+      - catalogue
+      - redis
 
   # user:
   #   image: user:v1
@@ -80,5 +80,5 @@ services:
       # - payments
       # - shipping
       # - user
-      # - cart
+      - cart
       - catalogue
