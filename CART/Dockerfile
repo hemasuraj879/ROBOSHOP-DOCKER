@@ -9,7 +9,7 @@ RUN addgroup -S cart && adduser -S cart cart
 # Set the working directory in the container
 WORKDIR /app
 
-RUN chown -R cart:cart /opt/server
+RUN chown -R cart:cart /opt/app
 USER cart
 
 # Setting up Environment variables
